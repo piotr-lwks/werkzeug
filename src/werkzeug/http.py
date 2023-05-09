@@ -1443,7 +1443,7 @@ def dump_cookie(
         path = quote(path, safe="%!$&'()*+,/:=@", encoding=charset)
 
     if domain:
-        domain = domain.partition(":")[0].lstrip(".").encode("idna").decode("ascii")
+        domain = domain.partition(":")[0].encode("idna").decode("ascii")
 
     if isinstance(max_age, timedelta):
         max_age = int(max_age.total_seconds())
